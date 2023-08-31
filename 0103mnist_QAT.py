@@ -17,7 +17,7 @@ def parseArgs():
     parser = argparse.ArgumentParser()
     parser.add_argument('--batch-size', type=int, default=64)
     parser.add_argument('--test-batch-size', type=int, default=1000)
-    parser.add_argument('--epochs', type=int, default=1)
+    parser.add_argument('--epochs', type=int, default=10)
     parser.add_argument('--lr', type=float, default=1.0)
     parser.add_argument('--gamma', type=float, default=0.7)
     parser.add_argument('--no-cuda', action='store_true', default=False)
@@ -92,7 +92,7 @@ def main():
 
     model = QMnistModel().to(device)
     model.eval()
-    model.qconfig = torch.ao.quantization.get_default_qconfig('x86')
+    model.qconfig = torch.ao.quantization.get_default_qconfig('qnnpack')
     model_fp32_fused = torch.ao.quantization.fuse_modules(model, [['conv1', 'relu1'],['conv2', 'relu2'],['fc1', 'relu3']])
     model_fp32_prepared = torch.ao.quantization.prepare_qat(model_fp32_fused.train())
 

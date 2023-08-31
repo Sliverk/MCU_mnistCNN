@@ -268,4 +268,4 @@ ser = setSerial("/dev/ttyACM0")
 # Usage:
 python 0402_pc_ui_sendImage.py
 ```
-
+> Thanks to [U-TOE](https://github.com/zhaolanhuang/U-TOE) project, and [RIOT](https://github.com/RIOT-OS/RIOT) project.

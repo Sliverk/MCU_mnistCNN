@@ -1,0 +1,12 @@
+MODULE := $(UTVM_MODULE_NAME)
+
+CFLAGS += -I$(UTVM_MODEL_DIR)/runtime/include
+CFLAGS += -I$(UTVM_MODEL_DIR)/codegen/host/include
+CFLAGS += -Wno-pedantic 
+CFLAGS += -Wno-attributes
+CFLAGS += -Wno-incompatible-pointer-types
+CFLAGS += -Wno-cast-align
+CFLAGS += -Wno-unused-parameter
+CFLAGS += -Wno-unused-variable
+
+include  $(RIOTBASE)/Makefile.base

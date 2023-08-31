@@ -19,7 +19,7 @@ model_fp32.eval()
 # 'qnnpack' for mobile inference. Other quantization configurations such
 # as selecting symmetric or assymetric quantization and MinMax or L2Norm
 # calibration techniques can be specified here.
-model_fp32.qconfig = torch.quantization.get_default_qconfig('fbgemm')
+model_fp32.qconfig = torch.quantization.get_default_qconfig('qnnpack')
 
 # Prepare the model for static quantization. This inserts observers in
 # the model that will observe activation tensors during calibration.
